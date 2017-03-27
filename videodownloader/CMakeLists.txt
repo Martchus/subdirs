@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
 
 project("videodownloader-subdirs")
 set(SUBDIRS_PREFIX "../..")
+enable_testing()
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH true)
 include_directories(BEFORE SYSTEM "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/${SUBDIRS_PREFIX}")
