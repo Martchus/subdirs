@@ -19,7 +19,4 @@ add_subdirectory(${SUBDIRS_PREFIX}/reflective-rapidjson reflective-rapidjson)
 list(APPEND CMAKE_MODULE_PATH ${REFLECTIVE_RAPIDJSON_SOURCE_DIR}/cmake/modules)
 link_directories(${REFLECTIVE_RAPIDJSON_BINARY_DIR})
 
-add_subdirectory(${SUBDIRS_PREFIX}/3rdparty/pistache pistache)
-link_directories("${CMAKE_BINRARY_DIR}/pistache")
-
 add_subdirectory(${SUBDIRS_PREFIX}/bookmarksync bookmarksync)
