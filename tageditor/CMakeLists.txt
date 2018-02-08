@@ -16,6 +16,13 @@ if(WIDGETS_GUI OR QUICK_GUI)
     link_directories(${QT_UTILITIES_BINARY_DIR})
 endif()
 
+option(ENABLE_JSON_EXPORT "enable JSON export" OFF)
+if(ENABLE_JSON_EXPORT)
+    add_subdirectory(${SUBDIRS_PREFIX}/reflective-rapidjson reflective-rapidjson)
+    list(APPEND CMAKE_MODULE_PATH ${REFLECTIVE_RAPIDJSON_SOURCE_DIR}/cmake/modules)
+    link_directories(${REFLECTIVE_RAPIDJSON_BINARY_DIR})
+endif()
+
 add_subdirectory(${SUBDIRS_PREFIX}/tagparser tagparser)
 link_directories(${TAG_PARSER_BINARY_DIR})
 
