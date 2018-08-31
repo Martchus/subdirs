@@ -10,6 +10,8 @@ add_subdirectory(${SUBDIRS_PREFIX}/c++utilities c++utilities)
 list(APPEND CMAKE_MODULE_PATH ${CPP_UTILITIES_SOURCE_DIR}/cmake/modules)
 link_directories(${CPP_UTILITIES_BINARY_DIR})
 
+option(WIDGETS_GUI "enables/disables building the Qt Widgets GUI: yes (default) or no" ON)
+option(QUICK_GUI "enables/disables building the Qt Quick GUI: yes (default) or no" ON)
 if(WIDGETS_GUI OR QUICK_GUI)
     add_subdirectory(${SUBDIRS_PREFIX}/qtutilities qtutilities)
     list(APPEND CMAKE_MODULE_PATH ${QT_UTILITIES_SOURCE_DIR}/cmake/modules)
