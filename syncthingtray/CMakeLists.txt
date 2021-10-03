@@ -19,4 +19,5 @@ list(APPEND CMAKE_MODULE_PATH ${QT_UTILITIES_SOURCE_DIR}/cmake/modules)
 link_directories(${QT_UTILITIES_BINARY_DIR})
 
 message(STATUS "Adding syncthingtray subdir")
+set(BUNDLED_QT_FORK_AWESOME_PATH "../qtforkawesome" CACHE PATH "specifies the (relative) path to the qtforkawesome sources for building it together with ${META_PROJECT_NAME}")
 add_subdirectory(${SUBDIRS_PREFIX}/syncthingtray syncthingtray)
