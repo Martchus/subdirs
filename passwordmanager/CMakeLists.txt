@@ -10,6 +10,13 @@ add_subdirectory(${SUBDIRS_PREFIX}/c++utilities c++utilities)
 list(APPEND CMAKE_MODULE_PATH ${CPP_UTILITIES_SOURCE_DIR}/cmake/modules)
 link_directories(${CPP_UTILITIES_BINARY_DIR})
 
+if (QT_PACKAGE_PREFIX STREQUAL "Qt6")
+    # set variables to build KF against Qt 6 as well
+    set(BUILD_WITH_QT6 ON)
+    set(EXCLUDE_DEPRECATED_BEFORE_AND_AT CURRENT)
+    set(QT_MAJOR_VERSION "6")
+endif ()
+
 option(WIDGETS_GUI "enables/disables building the Qt Widgets GUI: yes (default) or no" ON)
 option(QUICK_GUI "enables/disables building the Qt Quick GUI: yes (default) or no" ON)
 if(WIDGETS_GUI OR QUICK_GUI)
@@ -18,21 +25,9 @@ if(WIDGETS_GUI OR QUICK_GUI)
     link_directories(${QT_UTILITIES_BINARY_DIR})
 endif()
 if(QUICK_GUI)
-    set(ECM_PATH OFF CACHE PATH "specifies the (relative) path to the extra-cmake-modules sources for building it together with passwordmanager")
-    if(NOT ECM_PATH)
-        message(STATUS "Using system extra-cmake-modules (ECM_PATH not set)")
-    else()
-        # FIXME: building ecm in the same project doesn't seem to work since it has references to the installed location
-        add_subdirectory("${ECM_PATH}" ecm)
-        #file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/bundled-ecm")
-        #file(WRITE "${CMAKE_BINARY_DIR}/bundled-ecm/ECMConfig.cmake" "set(ECM_MODULE_DIR ${ECM_PATH}/modules)")
-        set(ECM_DIR "${CMAKE_BINARY_DIR}/bundled-ecm")
-        list(APPEND CMAKE_MODULE_PATH
-            "${ECM_PATH}/modules"
-            "${ECM_PATH}/kde-modules"
-            "${ECM_PATH}/find-modules"
-        )
-    endif()
+    # note: Building ECM as part of the project doesn't work. Simply build ECM sparately like
+    # "cmake -G Ninja -DBUILD_WITH_QT6=ON -DCMAKE_INSTALL_PREFIX=/home/martchus/build/qtcreator2/build-passwordmanager-Desktop-Debug/install /home/martchus/more_projects/kde/extra-cmake-modules"
+    # and set that install dir as ECM_DIR=/home/martchus/build/qtcreator2/build-passwordmanager-Desktop-Debug/install/share/ECM/cmake.
 
     set(KIRIGAMI_PATH OFF CACHE PATH "specifies the (relative) path to the Kirigami 2 sources for building it together with passwordmanager")
     if(NOT KIRIGAMI_PATH)
