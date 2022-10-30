@@ -16,6 +16,9 @@ add_subdirectory(${SUBDIRS_PREFIX}/c++utilities c++utilities)
 list(APPEND CMAKE_MODULE_PATH ${CPP_UTILITIES_SOURCE_DIR}/cmake/modules)
 link_directories(${CPP_UTILITIES_BINARY_DIR})
 
+add_subdirectory(${SUBDIRS_PREFIX}/passwordfile passwordfile)
+link_directories(${PASSWORD_FILE_BINARY_DIR})
+
 add_subdirectory(${SUBDIRS_PREFIX}/reflective-rapidjson reflective-rapidjson)
 list(APPEND CMAKE_MODULE_PATH ${REFLECTIVE_RAPIDJSON_SOURCE_DIR}/cmake/modules)
 link_directories(${REFLECTIVE_RAPIDJSON_BINARY_DIR})
