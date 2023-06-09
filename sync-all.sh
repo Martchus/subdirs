@@ -24,7 +24,7 @@ for dir in "${!repo_names[@]}"; do
     [[ -d ../$dir/.git ]] && continue
     echo "==> Cloning $dir"
     repo=${repo_names[$dir]:-$dir}
-    git -C .. clone "git@github.com:Martchus/$repo.git" "$dir"
+    git -C .. clone -c core.symlinks=true "git@github.com:Martchus/$repo.git" "$dir"
 done
 
 # ensure all repositories are up-to-date
