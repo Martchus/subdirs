@@ -18,6 +18,7 @@ declare -A repo_names=(
     [dbus-soundrecorder]=
     [geocoordinatecalculator]=
     [auto-makepkg]=arch-repo-manager
+    [subdirs]=
 )
 
 # ensure a clone of all repositories exists
@@ -26,6 +27,21 @@ for dir in "${!repo_names[@]}"; do
     echo "==> Cloning $dir"
     repo=${repo_names[$dir]:-$dir}
     git -C .. clone -c core.symlinks=true "git@github.com:Martchus/$repo.git" "$dir"
+done
+
+# ensure the fallback repo is added
+for dir in "${!repo_names[@]}"; do
+    repo=${repo_names[$dir]:-$dir}
+    if ! git -C "../$dir" remote show gitea &> /dev/null ; then
+        echo "==> Adding fallback remote for $dir"
+        git -C "../$dir" remote add gitea "gitea@martchus.no-ip.biz:Martchus/$repo.git"
+    fi
+    if ! git -C "../$dir" remote show all &> /dev/null ; then
+        echo "==> Configuring 'all' remote for $dir"
+        git -C "../$dir" remote add all "git@github.com:Martchus/$repo.git"
+        git -C "../$dir" remote set-url --add --push all "git@github.com:Martchus/$repo.git"
+        git -C "../$dir" remote set-url --add --push all "gitea@martchus.no-ip.biz:Martchus/$repo.git"
+    fi
 done
 
 # ensure all repositories are up-to-date
