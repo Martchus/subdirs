@@ -17,6 +17,7 @@ declare -A repo_names=(
     [reflective-rapidjson]=
     [dbus-soundrecorder]=
     [geocoordinatecalculator]=
+    [auto-makepkg]=arch-repo-manager
 )
 
 # ensure a clone of all repositories exists
