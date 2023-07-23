@@ -52,7 +52,14 @@ for dir in ../* ; do
     branch_name=$(git -C "$dir" symbolic-ref -q HEAD)
     branch_name=${branch_name##refs/heads/}
     branch_name=${branch_name:-DETACHED}
+
+    # try pushing local changes first
+    if git -C "$dir" push -u all master:master ; then
+        git -C "$dir" remote update
+    fi
+
     if output=$(git -C "$dir" status --porcelain) && [[ -z $output ]] && [[ $branch_name == DETACHED || $branch_name == master ]]; then
         git -C "$dir" reset --hard origin/master
     fi
 done
+
