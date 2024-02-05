@@ -18,6 +18,7 @@ declare -A repo_names=(
     [dbus-soundrecorder]=
     [geocoordinatecalculator]=
     [auto-makepkg]=arch-repo-manager
+    [PianoBooster]=
     [subdirs]=
 )
 
