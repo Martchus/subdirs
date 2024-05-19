@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+shopt -s nullglob
 
 subdirs_path=$(dirname -- "$(realpath -- "$0")")
 cd "$subdirs_path"
@@ -61,10 +62,26 @@ for dir in "${relevant_dirs[@]}"; do
     # try pushing local changes first
     if git -C "$dir" push -u all master:master ; then
         git -C "$dir" remote update
+    else
+        echo "Unable to push local changes of '$dir' to master, trying to rebase anyway."
     fi
 
-    if output=$(git -C "$dir" status --porcelain) && [[ -z $output ]] && [[ $branch_name == DETACHED || $branch_name == master ]]; then
+    # clean files like "git-config.exe.stackdump"
+    files_to_delete=("$dir"/*.stackdump)
+    if [[ ${#files_to_delete[@]} -gt 0 ]]; then
+        echo "Deleting junk files within '$dir':"
+        rm -v "${files_to_delete[@]}"
+    fi
+
+    # reset to current master
+    if [[ $branch_name != DETACHED && $branch_name != master ]]; then
+        echo "Not touching '$dir' - it isn't on master or a detached had (it is on $branch_name)."
+        continue
+    fi
+    if output=$(git -C "$dir" status --porcelain) && [[ -z $output ]]; then
         git -C "$dir" reset --hard origin/master
+    else
+        echo "Not touching '$dir' - it isn't clean:\n$output"
     fi
 done
 
