@@ -22,8 +22,10 @@ declare -A repo_names=(
     [subdirs]=
 )
 
+[[ $# -gt 0 ]] && relevant_dirs=("$@") || relevant_dirs=("${!repo_names[@]}")
+
 # ensure a clone of all repositories exists
-for dir in "${!repo_names[@]}"; do
+for dir in "${relevant_dirs[@]}"; do
     [[ -d ../$dir/.git ]] && continue
     echo "==> Cloning $dir"
     repo=${repo_names[$dir]:-$dir}
@@ -31,7 +33,8 @@ for dir in "${!repo_names[@]}"; do
 done
 
 # ensure the fallback repo is added
-for dir in "${!repo_names[@]}"; do
+for dir in "${relevant_dirs[@]}"; do
+    [[ -d ../$dir/.git ]] && continue
     repo=${repo_names[$dir]:-$dir}
     if ! git -C "../$dir" remote show gitea &> /dev/null ; then
         echo "==> Adding fallback remote for $dir"
@@ -46,7 +49,8 @@ for dir in "${!repo_names[@]}"; do
 done
 
 # ensure all repositories are up-to-date
-for dir in ../* ; do
+[[ $# -gt 0 ]] && relevant_dirs=("${relevant_dirs[@]/#/../}") || relevant_dirs=(../*)
+for dir in "${relevant_dirs[@]}"; do
     [[ -d $dir/.git ]] || continue
     echo "==> Updating $dir"
     git -C "$dir" remote update
