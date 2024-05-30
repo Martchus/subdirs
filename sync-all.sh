@@ -39,13 +39,13 @@ for dir in "${relevant_dirs[@]}"; do
     repo=${repo_names[$dir]:-$dir}
     if ! git -C "../$dir" remote show gitea &> /dev/null ; then
         echo "==> Adding fallback remote for $dir"
-        git -C "../$dir" remote add gitea "gitea@martchus.no-ip.biz:Martchus/$repo.git"
+        git -C "../$dir" remote add gitea "gitea@martchus.dyn.f3l.de:Martchus/$repo.git"
     fi
     if ! git -C "../$dir" remote show all &> /dev/null ; then
         echo "==> Configuring 'all' remote for $dir"
         git -C "../$dir" remote add all "git@github.com:Martchus/$repo.git"
         git -C "../$dir" remote set-url --add --push all "git@github.com:Martchus/$repo.git"
-        git -C "../$dir" remote set-url --add --push all "gitea@martchus.no-ip.biz:Martchus/$repo.git"
+        git -C "../$dir" remote set-url --add --push all "gitea@martchus.dyn.f3l.de:Martchus/$repo.git"
     fi
 done
 
