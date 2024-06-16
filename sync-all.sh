@@ -73,6 +73,9 @@ for dir in "${relevant_dirs[@]}"; do
         rm -v "${files_to_delete[@]}"
     fi
 
+    # clean changes to global.h
+    git -C "$dir" restore '*global.h' || true
+
     # reset to current master
     if [[ $branch_name != DETACHED && $branch_name != master ]]; then
         echo "Not touching '$dir' - it isn't on master or a detached had (it is on $branch_name)."
