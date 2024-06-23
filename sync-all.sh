@@ -55,9 +55,10 @@ for dir in "${relevant_dirs[@]}"; do
     [[ -d $dir/.git ]] || continue
     echo "==> Updating $dir"
     git -C "$dir" remote update
-    branch_name=$(git -C "$dir" symbolic-ref -q HEAD)
+    branch_name=$(git -C "$dir" symbolic-ref -q HEAD) || true
     branch_name=${branch_name##refs/heads/}
     branch_name=${branch_name:-DETACHED}
+    echo "current branch: $branch_name"
 
     # try pushing local changes first
     if git -C "$dir" push -u all master:master ; then
