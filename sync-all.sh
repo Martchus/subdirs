@@ -14,6 +14,7 @@ declare -A repo_names=(
     [tageditor]=
     [passwordfile]=
     [passwordmanager]=
+    [PianoBooster]=
     [videodownloader]=
     [reflective-rapidjson]=
     [dbus-soundrecorder]=
