@@ -12,6 +12,7 @@ if (EXISTS "${RAPIDJSON_INCLUDE_DIRS}")
     message(STATUS "Found custom RapidJSON under: ${RAPIDJSON_INCLUDE_DIRS}")
 endif ()
 
+option(USE_LIBARCHIVE "uses libarchive; if disabled archiving utilities will not be available" ON)
 add_subdirectory(${SUBDIRS_PREFIX}/c++utilities c++utilities)
 set(c++utilities${CONFIGURATION_PACKAGE_SUFFIX}_DIR "${CMAKE_CURRENT_BINARY_DIR}/c++utilities")
 list(APPEND CMAKE_MODULE_PATH ${CPP_UTILITIES_SOURCE_DIR}/cmake/modules)
