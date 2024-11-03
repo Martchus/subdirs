@@ -36,7 +36,7 @@ done
 
 # ensure the fallback repo is added
 for dir in "${relevant_dirs[@]}"; do
-    [[ -d ../$dir/.git ]] && continue
+    [[ -d ../$dir/.git ]] || continue
     repo=${repo_names[$dir]:-$dir}
     if ! git -C "../$dir" remote show gitea &> /dev/null ; then
         echo "==> Adding fallback remote for $dir"
