@@ -6,6 +6,14 @@ enable_testing()
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH true)
 
+# disable certain features to optimize size of Android app a little bit
+if (ANDROID)
+    option(USE_BOOST_PROCESS "enables use of Boost.Process instead of QProcess" OFF)
+    option(USE_ICONV "enables use of iconv (not used anyway)" OFF)
+    option(USE_NATIVE_FILE_BUFFER "enables use of native file buffer (not used anyway)" OFF)
+    option(USE_STANDARD_FILESYSTEM "enables use of standard filesystem in c++utilities (not used anyway)" OFF)
+endif ()
+
 message(STATUS "Adding c++utilities subdir")
 add_subdirectory(${SUBDIRS_PREFIX}/c++utilities c++utilities)
 set(c++utilities${CONFIGURATION_PACKAGE_SUFFIX}_DIR "${CMAKE_CURRENT_BINARY_DIR}/c++utilities")
