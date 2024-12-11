@@ -7,7 +7,7 @@ enable_testing()
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH true)
 
 # disable certain features to optimize size of Android app a little bit
-if (ANDROID)
+if (ANDROID OR IOS)
     option(USE_BOOST_PROCESS "enables use of Boost.Process instead of QProcess" OFF)
     option(USE_ICONV "enables use of iconv (not used anyway)" OFF)
     option(USE_NATIVE_FILE_BUFFER "enables use of native file buffer (not used anyway)" OFF)
