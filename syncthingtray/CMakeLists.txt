@@ -12,6 +12,7 @@ if (ANDROID)
     option(USE_ICONV "enables use of iconv (not used anyway)" OFF)
     option(USE_NATIVE_FILE_BUFFER "enables use of native file buffer (not used anyway)" OFF)
     option(USE_STANDARD_FILESYSTEM "enables use of standard filesystem in c++utilities (not used anyway)" OFF)
+    option(WIDGETS_GUI "enables Qt Widgets GUI" OFF)
     option(QUICK_GUI "enables Qt Quick GUI" ON)
 endif ()
 
