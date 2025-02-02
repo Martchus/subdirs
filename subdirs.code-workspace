@@ -1,0 +1,45 @@
+{
+    "folders": [
+        {
+            "path": "../c++utilities"
+        },
+        {
+            "path": "../qtutilities"
+        },
+        {
+            "path": "../qtforkawesome"
+        },
+        {
+            "path": "../syncthingtray"
+        },
+        {
+            "path": "../passwordfile"
+        },
+        {
+            "path": "../passwordmanager"
+        },
+        {
+            "path": "../tagparser"
+        },
+        {
+            "path": "../tageditor"
+        },
+        {
+            "path": "../reflective-rapidjson"
+        }
+    ],
+    "settings": {},
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "gdb",
+                "request": "launch",
+                "name": "GDB: syncthingtray-debug-kde",
+                "target": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray",
+                "valuesFormatting": "parseText"
+            }
+        ]
+    }
+}
