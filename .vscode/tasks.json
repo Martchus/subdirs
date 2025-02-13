@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+		{
+            "type": "shell",
+            "label": "configure stt: debug-kde",
+            "command": "cd syncthingtray; cmake --preset debug-kde -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "configure stt: arch-android-x86-64",
+            "command": "cd syncthingtray; source android-env x86-64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "configure stt: arch-android-aarch64",
+            "command": "cd syncthingtray; source android-env aarch64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build stt: tidy",
+            "command": "cd syncthingtray; cmake --build --preset debug-kde --target tidy",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build stt: debug-kde",
+            "command": "cd syncthingtray; cmake --build --preset debug-kde",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build stt: arch-android-x86-64",
+            "command": "cd syncthingtray; source android-env x86-64 && cmake --build --preset arch-android",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build stt: arch-android-aarch64",
+            "command": "cd syncthingtray; source android-env aarch64 && cmake --build --preset arch-android",
+            "group": "build"
+        },
+    ]
+}
