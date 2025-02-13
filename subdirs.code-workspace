@@ -36,6 +36,22 @@
         "version": "0.2.0",
         "configurations": [
             {
+                "type": "cppdbg",
+                "request": "launch",
+                "name": "debug: syncthingtray-debug-kde qt-widgets",
+                "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
+                "args": ["qt-widgets-gui"],
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray"
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
+                "name": "debug: syncthingtray-debug-kde qt-quick",
+                "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
+                "args": ["qt-quick-gui"],
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray"
+            },
+            {
                 "type": "gdb",
                 "request": "launch",
                 "name": "GDB: syncthingtray-debug-kde",
