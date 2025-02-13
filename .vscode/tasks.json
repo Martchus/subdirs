@@ -1,7 +1,13 @@
 {
     "version": "2.0.0",
     "tasks": [
-		{
+        {
+            "type": "shell",
+            "label": "configure stt: debug-qt6",
+            "command": "cd syncthingtray; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
             "type": "shell",
             "label": "configure stt: debug-kde",
             "command": "cd syncthingtray; cmake --preset debug-kde -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
@@ -21,14 +27,26 @@
         },
         {
             "type": "shell",
-            "label": "build stt: tidy",
-            "command": "cd syncthingtray; cmake --build --preset debug-kde --target tidy",
+            "label": "build stt: debug-qt6",
+            "command": "cd syncthingtray; cmake --build --preset debug-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "tidy stt: debug-qt6",
+            "command": "cd syncthingtray; cmake --build --preset debug-qt6 --target tidy",
             "group": "build"
         },
         {
             "type": "shell",
             "label": "build stt: debug-kde",
             "command": "cd syncthingtray; cmake --build --preset debug-kde",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "tidy stt: debug-kde",
+            "command": "cd syncthingtray; cmake --build --preset debug-kde --target tidy",
             "group": "build"
         },
         {

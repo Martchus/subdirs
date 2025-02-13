@@ -38,6 +38,22 @@
             {
                 "type": "cppdbg",
                 "request": "launch",
+                "name": "debug: syncthingtray-debug-qt6 qt-widgets",
+                "program": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray/syncthingtray-devel",
+                "args": ["qt-widgets-gui"],
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray"
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
+                "name": "debug: syncthingtray-debug-qt6 qt-quick",
+                "program": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray/syncthingtray-devel",
+                "args": ["qt-quick-gui"],
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray"
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
                 "name": "debug: syncthingtray-debug-kde qt-widgets",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
                 "args": ["qt-widgets-gui"],
