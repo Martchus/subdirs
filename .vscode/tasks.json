@@ -33,6 +33,18 @@
         },
         {
             "type": "shell",
+            "label": "run stt: debug-qt6",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray\"; ./syncthingtray-devel",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "run stt: debug-qt6: qt-quick",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray\"; ./syncthingtray-devel qt-quick-gui",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "tidy stt: debug-qt6",
             "command": "cd syncthingtray; cmake --build --preset debug-qt6 --target tidy",
             "group": "build"
@@ -41,6 +53,42 @@
             "type": "shell",
             "label": "build stt: debug-kde",
             "command": "cd syncthingtray; cmake --build --preset debug-kde",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "run stt: debug-kde: qt-widgets",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray\"; ./syncthingtray-devel",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "run stt: debug-kde: qt-quick",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray\"; ./syncthingtray-devel qt-quick-gui",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-kde: connector",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingconnector\"; ./syncthingconnector-devel_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-kde: models",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingmodel\"; ./syncthingmodel-devel_models_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-kde: wizard",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingwidgets\"; ./syncthingwidgets-devel_wizard_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-kde: all",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray\"; ctest .",
             "group": "build"
         },
         {
