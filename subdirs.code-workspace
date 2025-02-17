@@ -57,6 +57,7 @@
                 "name": "debug: syncthingtray-debug-kde: qt-widgets",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
                 "args": ["qt-widgets-gui"],
+                "environment": [{"name": "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS", "value": "1"}],
                 "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray"
             },
             {
