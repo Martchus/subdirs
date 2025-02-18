@@ -27,6 +27,30 @@
         },
         {
             "type": "shell",
+            "label": "link stt: debug-qt6",
+            "command": "ln -fvrs \"${env:BUILD_DIR}/syncthingtray/debug-qt6/compile_commands.json\" \"syncthingtray/compile_commands.json\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "link stt: debug-kde",
+            "command": "ln -fvrs \"${env:BUILD_DIR}/syncthingtray/debug-kde/compile_commands.json\" \"syncthingtray/compile_commands.json\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "link stt: arch-android-x86-64",
+            "command": "ln -fvrs \"${env:BUILD_DIR}/syncthingtray/arch-android-x86_64/compile_commands.json\" \"syncthingtray/compile_commands.json\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "link stt: arch-android-aarch64",
+            "command": "ln -fvrs \"${env:BUILD_DIR}/syncthingtray/arch-android-aarch64/compile_commands.json\" \"syncthingtray/compile_commands.json\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "build stt: debug-qt6",
             "command": "cd syncthingtray; cmake --build --preset debug-qt6",
             "group": "build"
