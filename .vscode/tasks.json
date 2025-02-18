@@ -100,13 +100,13 @@
         {
             "type": "shell",
             "label": "build stt: arch-android-x86-64",
-            "command": "cd syncthingtray; source android-env x86-64 && cmake --build --preset arch-android",
+            "command": "cd syncthingtray; source \"/home/$USER/.bashrc\" && source android-env x86-64 && cmake --build --preset arch-android",
             "group": "build"
         },
         {
             "type": "shell",
             "label": "build stt: arch-android-aarch64",
-            "command": "cd syncthingtray; source android-env aarch64 && cmake --build --preset arch-android",
+            "command": "cd syncthingtray; source \"/home/$USER/.bashrc\" && source android-env aarch64 && cmake --build --preset arch-android",
             "group": "build"
         },
     ]
