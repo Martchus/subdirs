@@ -44,7 +44,83 @@
                 "name": "debug: auto-makepkg-debug-qt6: service",
                 "program": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv/buildservice-devel",
                 "args": ["run", "-c", "${workspaceFolder:auto-makepkg}/srv/server.conf"],
-                "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv"
+                "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Set disassembly flavor to Intel",
+                        "text": "-gdb-set disassembly-flavor intel",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Allow loading scripts from auto-load dir",
+                        "text": "add-auto-load-safe-path /usr/share/gdb/auto-load"
+                    },
+                    {
+                        "description": "Set default directory for scripts that should be auto-loaded",
+                        "text": "add-auto-load-scripts-directory /usr/share/gdb/auto-load"
+                    },
+                ]
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
+                "name": "debug: auto-makepkg-debug-qt6: pacparse",
+                "program": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/pacparse/pacparse-devel",
+                "args": ["--binaries", "${workspaceFolder:auto-makepkg}/libpkg/testfiles/x86_64-libsqlite3.dll.a"],
+                "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/pacparse",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Set disassembly flavor to Intel",
+                        "text": "-gdb-set disassembly-flavor intel",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Allow loading scripts from auto-load dir",
+                        "text": "add-auto-load-safe-path /usr/share/gdb/auto-load"
+                    },
+                    {
+                        "description": "Set default directory for scripts that should be auto-loaded",
+                        "text": "add-auto-load-scripts-directory /usr/share/gdb/auto-load"
+                    },
+                ]
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
+                "name": "debug: auto-makepkg-debug-qt6: libpkg-tests",
+                "program": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/libpkg/libpkg-devel_tests",
+                "args": ["-w", "/tmp/libpkg-tests"],
+                "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/libpkg",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Set disassembly flavor to Intel",
+                        "text": "-gdb-set disassembly-flavor intel",
+                        "ignoreFailures": true
+                    },
+                    {
+                        "description": "Allow loading scripts from auto-load dir",
+                        "text": "add-auto-load-safe-path /usr/share/gdb/auto-load"
+                    },
+                    {
+                        "description": "Set default directory for scripts that should be auto-loaded",
+                        "text": "add-auto-load-scripts-directory /usr/share/gdb/auto-load"
+                    },
+                ]
             },
             {
                 "type": "cppdbg",
