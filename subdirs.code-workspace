@@ -29,12 +29,23 @@
         },
         {
             "path": "../reflective-rapidjson"
+        },
+        {
+            "path": "../auto-makepkg"
         }
     ],
     "settings": {},
     "launch": {
         "version": "0.2.0",
         "configurations": [
+            {
+                "type": "cppdbg",
+                "request": "launch",
+                "name": "debug: auto-makepkg-debug-qt6: service",
+                "program": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv/buildservice-devel",
+                "args": ["run", "-c", "${workspaceFolder:auto-makepkg}/srv/server.conf"],
+                "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv"
+            },
             {
                 "type": "cppdbg",
                 "request": "launch",

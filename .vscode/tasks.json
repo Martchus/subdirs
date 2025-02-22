@@ -3,6 +3,30 @@
     "tasks": [
         {
             "type": "shell",
+            "label": "configure rmgr: debug-qt6",
+            "command": "cd auto-makepkg; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "link rmgr: debug-qt6",
+            "command": "ln -fvrs \"${env:BUILD_DIR}/auto-makepkg/debug-qt6/compile_commands.json\" \"auto-makepkg/compile_commands.json\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "tidy rmgr: debug-qt6",
+            "command": "cd auto-makepkg; cmake --build --preset debug-qt6 --target tidy",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build rmgr: debug-qt6",
+            "command": "cd auto-makepkg; cmake --build --preset debug-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "configure stt: debug-qt6",
             "command": "cd syncthingtray; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
             "group": "build"
