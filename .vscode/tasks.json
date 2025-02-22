@@ -20,10 +20,13 @@
             "group": "build"
         },
         {
-            "type": "shell",
+            "type": "cppbuild",
             "label": "build rmgr: debug-qt6",
-            "command": "cd auto-makepkg; cmake --build --preset debug-qt6",
-            "group": "build"
+            "command": "cmake",
+            "args": ["--build", "--preset", "debug-qt6"],
+			"options": {"cwd": "${workspaceFolder:subdirs}/auto-makepkg"},
+            "problemMatcher": ["$gcc"],
+            "group": {"kind": "build", "isDefault": false},
         },
         {
             "type": "shell",
