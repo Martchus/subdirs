@@ -1,38 +1,23 @@
 {
     "folders": [
-        {
-            "path": "."
-        },
-        {
-            "path": "../c++utilities"
-        },
-        {
-            "path": "../qtutilities"
-        },
-        {
-            "path": "../qtforkawesome"
-        },
-        {
-            "path": "../syncthingtray"
-        },
-        {
-            "path": "../passwordfile"
-        },
-        {
-            "path": "../passwordmanager"
-        },
-        {
-            "path": "../tagparser"
-        },
-        {
-            "path": "../tageditor"
-        },
-        {
-            "path": "../reflective-rapidjson"
-        },
-        {
-            "path": "../auto-makepkg"
-        }
+        {"path": "../auto-makepkg"},
+        {"path": "../c++utilities"},
+        {"path": "../qtutilities"},
+        {"path": "../qtforkawesome"},
+        {"path": "../syncthingtray"},
+        {"path": "../passwordfile"},
+        {"path": "../passwordmanager"},
+        {"path": "../PianoBooster"},
+        {"path": "../tagparser"},
+        {"path": "../tageditor"},
+        {"path": "../reflective-rapidjson"},
+        {"path": "."},
+        {"path": "./auto-makepkg"},
+        {"path": "./passwordmanager"},
+        {"path": "./pianobooster"},
+        {"path": "./syncthingtray"},
+        {"path": "./tageditor"},
+        {"path": "./videodownloader"},
     ],
     "settings": {},
     "launch": {
@@ -41,29 +26,25 @@
             {
                 "type": "cppdbg",
                 "request": "launch",
+                "name": "current cmake target",
+                "program": "${command:cmake.launchTargetPath}",
+                "args": [],
+                "cwd": "${command:cmake.launchTargetDirectory}",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
                 "name": "debug: auto-makepkg-debug-qt6: service",
                 "program": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv/buildservice-devel",
                 "args": ["run", "-c", "${workspaceFolder:auto-makepkg}/srv/server.conf"],
                 "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/srv",
                 "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Set disassembly flavor to Intel",
-                        "text": "-gdb-set disassembly-flavor intel",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Allow loading scripts from auto-load dir",
-                        "text": "add-auto-load-safe-path /usr/share/gdb/auto-load"
-                    },
-                    {
-                        "description": "Set default directory for scripts that should be auto-loaded",
-                        "text": "add-auto-load-scripts-directory /usr/share/gdb/auto-load"
-                    },
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
                 ]
             },
             {
@@ -74,24 +55,8 @@
                 "args": ["--binaries", "${workspaceFolder:auto-makepkg}/libpkg/testfiles/x86_64-libsqlite3.dll.a"],
                 "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/pacparse",
                 "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Set disassembly flavor to Intel",
-                        "text": "-gdb-set disassembly-flavor intel",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Allow loading scripts from auto-load dir",
-                        "text": "add-auto-load-safe-path /usr/share/gdb/auto-load"
-                    },
-                    {
-                        "description": "Set default directory for scripts that should be auto-loaded",
-                        "text": "add-auto-load-scripts-directory /usr/share/gdb/auto-load"
-                    },
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
                 ]
             },
             {
@@ -102,24 +67,8 @@
                 "args": ["-w", "/tmp/libpkg-tests"],
                 "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/libpkg",
                 "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Set disassembly flavor to Intel",
-                        "text": "-gdb-set disassembly-flavor intel",
-                        "ignoreFailures": true
-                    },
-                    {
-                        "description": "Allow loading scripts from auto-load dir",
-                        "text": "add-auto-load-safe-path /usr/share/gdb/auto-load"
-                    },
-                    {
-                        "description": "Set default directory for scripts that should be auto-loaded",
-                        "text": "add-auto-load-scripts-directory /usr/share/gdb/auto-load"
-                    },
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
                 ]
             },
             {
@@ -128,7 +77,11 @@
                 "name": "debug: syncthingtray-debug-qt6: qt-widgets",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray/syncthingtray-devel",
                 "args": ["qt-widgets-gui"],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -136,7 +89,11 @@
                 "name": "debug: syncthingtray-debug-qt6: qt-quick",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray/syncthingtray-devel",
                 "args": ["qt-quick-gui"],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -145,7 +102,11 @@
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
                 "args": ["qt-widgets-gui"],
                 "environment": [{"name": "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS", "value": "1"}],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -153,7 +114,11 @@
                 "name": "debug: syncthingtray-debug-kde: qt-quick",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray/syncthingtray-devel",
                 "args": ["qt-quick-gui"],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/tray",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -162,7 +127,11 @@
                 "program": "/bin/bash",
                 "args": ["${workspaceFolder:syncthingtray}/plasmoid/scripts/starttesting.sh", "plasmoidviewer", "-a", "martchus.syncthingplasmoid-devel"],
                 "environment": [{"name": "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS", "value": "1"}],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -170,7 +139,11 @@
                 "name": "debug: syncthingtray-debug-kde: connector",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingconnector/syncthingconnector-devel_tests",
                 "args": [],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingconnector"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingconnector",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -178,7 +151,11 @@
                 "name": "debug: syncthingtray-debug-kde: models",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingmodel/syncthingmodel-devel_models_tests",
                 "args": [],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingmodel"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingmodel",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "cppdbg",
@@ -186,7 +163,11 @@
                 "name": "debug: syncthingtray-debug-kde: wizard",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingwidgets/syncthingwidgets-devel_wizard_tests",
                 "args": [],
-                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingwidgets"
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingwidgets",
+                "setupCommands": [
+                    {"text": "-enable-pretty-printing", "ignoreFailures": true},
+                    {"text": "source ${workspaceFolder:subdirs}/.gdbinit"},
+                ]
             },
             {
                 "type": "gdb",
