@@ -158,6 +158,15 @@
             {
                 "type": "cppdbg",
                 "request": "launch",
+                "name": "debug: syncthingtray-debug-kde: plasma",
+                "program": "/bin/bash",
+                "args": ["${workspaceFolder:syncthingtray}/plasmoid/scripts/starttesting.sh", "plasmoidviewer", "-a", "martchus.syncthingplasmoid-devel"],
+                "environment": [{"name": "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS", "value": "1"}],
+                "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde"
+            },
+            {
+                "type": "cppdbg",
+                "request": "launch",
                 "name": "debug: syncthingtray-debug-kde: connector",
                 "program": "${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingconnector/syncthingconnector-devel_tests",
                 "args": [],
