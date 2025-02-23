@@ -1,5 +1,12 @@
 {
     "folders": [
+        {"path": "."},
+        {"path": "./auto-makepkg"},
+        {"path": "./passwordmanager"},
+        {"path": "./pianobooster"},
+        {"path": "./syncthingtray"},
+        {"path": "./tageditor"},
+        {"path": "./videodownloader"},
         {"path": "../auto-makepkg"},
         {"path": "../c++utilities"},
         {"path": "../qtutilities"},
@@ -11,13 +18,6 @@
         {"path": "../tagparser"},
         {"path": "../tageditor"},
         {"path": "../reflective-rapidjson"},
-        {"path": "."},
-        {"path": "./auto-makepkg"},
-        {"path": "./passwordmanager"},
-        {"path": "./pianobooster"},
-        {"path": "./syncthingtray"},
-        {"path": "./tageditor"},
-        {"path": "./videodownloader"},
     ],
     "settings": {
         "cmake.useCMakePresets": "always",
@@ -67,7 +67,7 @@
                 "request": "launch",
                 "name": "debug: auto-makepkg-debug-qt6: pacparse",
                 "program": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/pacparse/pacparse-devel",
-                "args": ["--binaries", "${workspaceFolder:auto-makepkg}/libpkg/testfiles/x86_64-libsqlite3.dll.a"],
+                "args": ["--binaries", "${workspaceFolder:subdirs}/../auto-makepkg/libpkg/testfiles/x86_64-libsqlite3.dll.a"],
                 "cwd": "${env:BUILD_DIR}/auto-makepkg/debug-qt6/auto-makepkg/pacparse",
                 "setupCommands": [
                     {"text": "-enable-pretty-printing", "ignoreFailures": true},
@@ -140,7 +140,7 @@
                 "request": "launch",
                 "name": "debug: syncthingtray-debug-kde: plasma",
                 "program": "/bin/bash",
-                "args": ["${workspaceFolder:syncthingtray}/plasmoid/scripts/starttesting.sh", "plasmoidviewer", "-a", "martchus.syncthingplasmoid-devel"],
+                "args": ["${workspaceFolder:subdirs}/../syncthingtray/plasmoid/scripts/starttesting.sh", "plasmoidviewer", "-a", "martchus.syncthingplasmoid-devel"],
                 "environment": [{"name": "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS", "value": "1"}],
                 "cwd": "${env:BUILD_DIR}/syncthingtray/debug-kde",
                 "setupCommands": [
