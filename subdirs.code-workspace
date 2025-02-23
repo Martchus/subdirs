@@ -19,7 +19,22 @@
         {"path": "./tageditor"},
         {"path": "./videodownloader"},
     ],
-    "settings": {},
+    "settings": {
+        "cmake.useCMakePresets": "always",
+        "cmake.autoSelectActiveFolder": false,
+        "cmake.configureOnOpen": false,
+        "cmake.configureOnEdit": false,
+        "cmake.ignoreCMakeListsMissing": true,
+        "cmake.buildDirectory": "${env:BUILD_DIR}/vscode",
+        "cmake.sourceDirectory": [
+            "${workspaceRoot}/auto-makepkg",
+            "${workspaceRoot}/passwordmanager",
+            "${workspaceRoot}/pianobooster",
+            "${workspaceRoot}/syncthingtray",
+            "${workspaceRoot}/tageditor",
+            "${workspaceRoot}/videodownloader",
+        ]
+    },
     "launch": {
         "version": "0.2.0",
         "configurations": [
