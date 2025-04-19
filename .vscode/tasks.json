@@ -30,6 +30,12 @@
         },
         {
             "type": "shell",
+            "label": "configure stt: devel-qt6",
+            "command": "cd syncthingtray; cmake --preset devel-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "configure stt: debug-qt6",
             "command": "cd syncthingtray; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
             "group": "build"
@@ -78,8 +84,20 @@
         },
         {
             "type": "shell",
+            "label": "build stt: devel-qt6",
+            "command": "cd syncthingtray; cmake --build --preset devel-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "build stt: debug-qt6",
             "command": "cd syncthingtray; cmake --build --preset debug-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "run stt: devel-qt6: qt-widgets",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/devel-qt6/syncthingtray/tray\"; ./syncthingtray-devel",
             "group": "build"
         },
         {
