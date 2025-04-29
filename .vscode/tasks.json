@@ -138,6 +138,12 @@
         },
         {
             "type": "shell",
+            "label": "test stt: debug-qt6: libsyncthing",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthing\"; ./syncthing-devel_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "test stt: debug-qt6: all",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray\"; ctest --output-on-failure .",
             "group": "build"
@@ -158,6 +164,12 @@
             "type": "shell",
             "label": "test stt: debug-kde: wizard",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingwidgets\"; ./syncthingwidgets-devel_wizard_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-kde: libsyncthing",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthing\"; ./syncthing-devel_tests",
             "group": "build"
         },
         {
