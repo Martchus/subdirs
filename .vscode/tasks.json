@@ -60,6 +60,18 @@
         },
         {
             "type": "shell",
+            "label": "configure stt: arch-x86_64-w64-mingw32-static-qt6",
+            "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "configure stt: arch-x86_64-w64-mingw32-static-devel-qt6",
+            "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-devel-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "link stt: debug-qt6",
             "command": "ln -fvrs \"${env:BUILD_DIR}/syncthingtray/debug-qt6/compile_commands.json\" \"syncthingtray/compile_commands.json\"",
             "group": "build"
@@ -200,6 +212,42 @@
             "type": "shell",
             "label": "build stt: arch-android-aarch64",
             "command": "cd syncthingtray; source \"/home/$USER/.bashrc\" && source android-env aarch64 && cmake --build --preset arch-android",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build stt: arch-x86_64-w64-mingw32-static-devel-qt6",
+            "command": "cd syncthingtray; source \"/home/$USER/.bashrc\" && cmake --build --preset arch-x86_64-w64-mingw32-static-devel-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build stt: arch-x86_64-w64-mingw32-static-qt6",
+            "command": "cd syncthingtray; source \"/home/$USER/.bashrc\" && cmake --build --preset arch-x86_64-w64-mingw32-static-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "configure pwmgr: arch-android-x86-64",
+            "command": "cd passwordmanager; source android-env x86-64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "configure pwmgr: arch-android-aarch64",
+            "command": "cd passwordmanager; source android-env aarch64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build pwmgr: arch-android-x86-64",
+            "command": "cd passwordmanager; source \"/home/$USER/.bashrc\" && source android-env x86-64 && cmake --build --preset arch-android",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build pwmgr: arch-android-aarch64",
+            "command": "cd passwordmanager; source \"/home/$USER/.bashrc\" && source android-env aarch64 && cmake --build --preset arch-android",
             "group": "build"
         },
     ]
