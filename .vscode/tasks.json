@@ -54,6 +54,12 @@
         },
         {
             "type": "shell",
+            "label": "configure stt: arch-android-x86-64 custom-prefix",
+            "command": "cd syncthingtray; source android-env x86-64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DCMAKE_FIND_ROOT_PATH=\"$BUILD_DIR/../androidinstall;${ANDROID_PREFIX}\" -DCMAKE_MODULE_PATH=\"/run/media/devel/build/androidinstall/lib/cmake;${ANDROID_PREFIX}/lib/cmake;/usr/lib/cmake\" -DQT_NO_PACKAGE_VERSION_CHECK=TRUE",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "configure stt: arch-android-aarch64",
             "command": "cd syncthingtray; source android-env aarch64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
             "group": "build"
