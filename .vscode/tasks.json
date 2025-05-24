@@ -256,5 +256,41 @@
             "command": "cd passwordmanager; source \"/home/$USER/.bashrc\" && source android-env aarch64 && cmake --build --preset arch-android",
             "group": "build"
         },
+        {
+            "type": "shell",
+            "label": "configure pb: devel-qt6",
+            "command": "cd pianobooster; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "configure pb: debug-qt6",
+            "command": "cd pianobooster; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build pb: devel-qt6",
+            "command": "cd pianobooster; cmake --build --preset devel-qt6",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "build pb: debug-qt6",
+            "command": "cd pianobooster; cmake --build --preset debug-qt6",
+            "group": "build"
+        },
+                {
+            "type": "shell",
+            "label": "run pb: devel-qt6: qt-widgets",
+            "command": "cd \"${env:BUILD_DIR}/pianobooster/devel-qt6/PianoBooster/build\"; ./pianobooster-devel",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "run pb: debug-qt6: qt-widgets",
+            "command": "cd \"${env:BUILD_DIR}/pianobooster/debug-qt6/PianoBooster/build\"; ./pianobooster-devel",
+            "group": "build"
+        },
     ]
 }
