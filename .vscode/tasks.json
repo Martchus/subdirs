@@ -1,5 +1,12 @@
 {
     "version": "2.0.0",
+    "options": {
+      "env": {
+        "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS": "1",
+        "QT_UTILITIES_UPDATER_FAKE_DOWNLOAD": "",
+        "SYNCTHINGTRAY_SINGLE_INSTANCE_ID": "test-instance"
+      }
+   },
     "tasks": [
         {
             "type": "shell",
@@ -121,7 +128,7 @@
         {
             "type": "shell",
             "label": "run stt: debug-qt6: qt-widgets",
-            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray\"; LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS=1 ./syncthingtray-devel",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/tray\"; ./syncthingtray-devel",
             "group": "build"
         },
         {
