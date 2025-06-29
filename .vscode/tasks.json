@@ -31,19 +31,19 @@
         {
             "type": "shell",
             "label": "configure stt: devel-qt6",
-            "command": "cd syncthingtray; cmake --preset devel-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "command": "cd syncthingtray; cmake --preset devel-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON -DSETUP_TOOLS=ON",
             "group": "build"
         },
         {
             "type": "shell",
             "label": "configure stt: debug-qt6",
-            "command": "cd syncthingtray; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON",
+            "command": "cd syncthingtray; cmake --preset debug-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON -DSETUP_TOOLS=ON",
             "group": "build"
         },
         {
             "type": "shell",
             "label": "configure stt: debug-kde",
-            "command": "cd syncthingtray; cmake --preset debug-kde -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON",
+            "command": "cd syncthingtray; cmake --preset debug-kde -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON -DSETUP_TOOLS=ON",
             "group": "build"
         },
         {
