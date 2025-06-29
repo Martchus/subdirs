@@ -156,6 +156,12 @@
         },
         {
             "type": "shell",
+            "label": "test stt: debug-qt6: setup",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/qtutilities\"; ./qtutilities-devel_setup_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "test stt: debug-qt6: libsyncthing",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthing\"; ./syncthing-devel_tests",
             "group": "build"
