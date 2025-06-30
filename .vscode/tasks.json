@@ -67,13 +67,13 @@
         {
             "type": "shell",
             "label": "configure stt: arch-x86_64-w64-mingw32-static-qt6",
-            "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON -DUSE_LIBARCHIVE=ON -DSETUP_TOOLS=ON",
             "group": "build"
         },
         {
             "type": "shell",
             "label": "configure stt: arch-x86_64-w64-mingw32-static-devel-qt6",
-            "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-devel-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON",
+            "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-devel-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON -DUSE_LIBARCHIVE=ON -DSETUP_TOOLS=ON",
             "group": "build"
         },
         {
