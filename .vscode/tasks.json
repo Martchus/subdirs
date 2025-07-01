@@ -205,6 +205,12 @@
         },
         {
             "type": "shell",
+            "label": "test stt: debug-kde: setup",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/qtutilities\"; ./qtutilities-devel_setup_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "test stt: debug-kde: all",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray\"; ctest --output-on-failure .",
             "group": "build"
