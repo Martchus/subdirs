@@ -96,3 +96,4 @@ for dir in "${relevant_dirs[@]}"; do
     fi
 done
 
+echo "Updated all repos: ${relevant_dirs[@]}"
