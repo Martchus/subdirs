@@ -56,6 +56,12 @@ for dir in "${relevant_dirs[@]}"; do
     [[ -d $dir/.git ]] || continue
     echo "==> Updating $dir"
     git -C "$dir" remote update
+    for remote in origin all; do
+        if ! git -C "$dir" remote get-url "$remote"; then
+            echo "Skipping, remote $remote doesn't exist"
+            continue 2
+        fi
+    done
     branch_name=$(git -C "$dir" symbolic-ref -q HEAD) || true
     branch_name=${branch_name##refs/heads/}
     branch_name=${branch_name:-DETACHED}
