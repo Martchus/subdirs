@@ -187,6 +187,12 @@
         },
         {
             "type": "shell",
+            "label": "test stt: debug-kde: cli",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/cli\"; ./syncthingctl-devel_tests -a \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/cli/syncthingctl-devel\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "test stt: debug-kde: models",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingmodel\"; ./syncthingmodel-devel_models_tests",
             "group": "build"
