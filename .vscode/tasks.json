@@ -73,6 +73,12 @@
         },
         {
             "type": "shell",
+            "label": "configure stt: arch-android-aarch64 custom-prefix",
+            "command": "cd syncthingtray; source android-env aarch64 && cmake --preset arch-android -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DCMAKE_FIND_ROOT_PATH=\"$BUILD_DIR/../androidinstall-aarch64;${ANDROID_PREFIX}\" -DCMAKE_MODULE_PATH=\"$BUILD_DIR/../androidinstall-aarch64/lib/cmake;${ANDROID_PREFIX}/lib/cmake;/usr/lib/cmake\" -DQT_NO_PACKAGE_VERSION_CHECK=TRUE -DQT_CMAKE_EXPORT_NAMESPACE=Qt6 -DBACKGROUND_RUNNING_AFTER_ANDROID_ACTIVITY_DESTRUCTION=OFF",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "configure stt: arch-x86_64-w64-mingw32-static-qt6",
             "command": "cd syncthingtray; cmake --preset arch-x86_64-w64-mingw32-static-qt6 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DQT_QML_GENERATE_QMLLS_INI=ON -DNO_LIBSYNCTHING=OFF -DUSE_LIBSYNCTHING=ON -DUSE_LIBARCHIVE=ON -DSETUP_TOOLS=ON",
             "group": "build"
