@@ -35,6 +35,9 @@ Makefile*
 *.qmlproject.user
 *.qmlproject.user.*
 
+# CLion
+.idea
+
 # Dolphin
 .directory
 
