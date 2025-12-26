@@ -211,6 +211,12 @@
         },
         {
             "type": "shell",
+            "label": "test stt: debug-kde: app",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthingwidgets\";  ./syncthingwidgets-devel_app_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "test stt: debug-kde: libsyncthing",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/syncthing\"; ./syncthing-devel_tests",
             "group": "build"
