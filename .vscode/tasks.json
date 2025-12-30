@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "options": {
       "env": {
-        "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS": "1",
+        "LIB_SYNCTHING_CONNECTOR_LOG_API_CALLS": "0",
         "QT_UTILITIES_UPDATER_FAKE_DOWNLOAD": "",
         "SYNCTHINGTRAY_SINGLE_INSTANCE_ID": "test-instance"
       }
