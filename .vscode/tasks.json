@@ -169,6 +169,18 @@
         },
         {
             "type": "shell",
+            "label": "test stt: debug-qt6: connector",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthingconnector\"; ./syncthingconnector-devel_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-qt6: cli",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/cli\"; ./syncthingctl-devel_tests -a \"${env:BUILD_DIR}/syncthingtray/debug-kde/syncthingtray/cli/syncthingctl-devel\"",
+            "group": "build"
+        },
+        {
+            "type": "shell",
             "label": "test stt: debug-qt6: setup",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/qtutilities\"; ./qtutilities-devel_setup_tests",
             "group": "build"
@@ -177,6 +189,24 @@
             "type": "shell",
             "label": "test stt: debug-qt6: libsyncthing",
             "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthing\"; ./syncthing-devel_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-qt6: models",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthingmodel\"; ./syncthingmodel-devel_models_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-qt6: wizard",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthingwidgets\"; ./syncthingwidgets-devel_wizard_tests",
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "test stt: debug-qt6: app",
+            "command": "cd \"${env:BUILD_DIR}/syncthingtray/debug-qt6/syncthingtray/syncthingwidgets\";  ./syncthingwidgets-devel_app_tests",
             "group": "build"
         },
         {
