@@ -89,7 +89,7 @@ for dir in "${relevant_dirs[@]}"; do
         echo "Not touching '$dir' - it isn't on master or a detached had (it is on $branch_name)."
         continue
     fi
-    if output=$(git -C "$dir" status --porcelain) && [[ -z $output ]]; then
+    if output=$(git -C "$dir" status --porcelain -uno) && [[ -z $output ]]; then
         git -C "$dir" reset --hard origin/master
     else
         echo "Not touching '$dir' - it isn't clean:\n$output"
